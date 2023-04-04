@@ -11,7 +11,7 @@ namespace MagicSquareTool.Square
         }
 
         /// <summary>
-        /// 法陣を初期化する
+        /// 方陣を初期化する
         /// </summary>
         private void Resetting()
         {
@@ -25,7 +25,7 @@ namespace MagicSquareTool.Square
         }
 
         /// <summary>
-        /// 魔法陣を作成する
+        /// 魔方陣を作成する
         /// </summary>
         public void Setup()
         {
@@ -39,7 +39,7 @@ namespace MagicSquareTool.Square
         }
 
         /// <summary>
-        /// 奇数×奇数の魔方陣を作成する()
+        /// 奇数×奇数の魔方陣を作成する
         /// </summary>
         private void Setup_odd()
         {
@@ -78,7 +78,7 @@ namespace MagicSquareTool.Square
         }
 
         /// <summary>
-        /// 偶数×偶数の魔方陣を作成する()
+        /// 偶数×偶数の魔方陣を作成する
         /// </summary>
         private void Setup_even()
         {
