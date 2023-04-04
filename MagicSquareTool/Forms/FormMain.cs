@@ -23,6 +23,9 @@ namespace MagicSquareTool.Forms
             DrawGrid(gridSize);
         }
 
+        /// <summary>
+        /// 魔方陣を作成ボタンを押したときの動作
+        /// </summary>
         private void Btn_CreateMagicSquare_Click(object sender, EventArgs e)
         {
             int gridSize = Convert.ToInt32(Txt_GridSize.Text);
@@ -38,7 +41,7 @@ namespace MagicSquareTool.Forms
         /// <param name="gridSize">マス目の一辺の長さ</param>
         private void DrawGrid(int gridSize)
         {
-            int cellSize = 80; // 1つのマスの一辺の長さ
+            int cellSize = 50; // 1つのマスの一辺の長さ
             int gridWidth = cellSize * gridSize; // マス目の幅
             int gridHeight = cellSize * gridSize; // マス目の高さ
             int margin = 10; // マージン
@@ -80,6 +83,21 @@ namespace MagicSquareTool.Forms
 
             // PictureBoxコントロールに描画する
             Pic_Board.Image = bmp;
+        }
+
+        private void Txt_GridSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //バックスペースが押された時は有効（Deleteキーも有効）
+            if (e.KeyChar == '\b')
+            {
+                return;
+            }
+
+            //数値0～9以外が押された時はイベントをキャンセルする
+            if (e.KeyChar < '0' || '9' < e.KeyChar)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

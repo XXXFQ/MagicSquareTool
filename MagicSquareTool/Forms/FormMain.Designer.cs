@@ -50,7 +50,7 @@ namespace MagicSquareTool.Forms
             this.Btn_CreateMagicSquare.Name = "Btn_CreateMagicSquare";
             this.Btn_CreateMagicSquare.Size = new System.Drawing.Size(105, 44);
             this.Btn_CreateMagicSquare.TabIndex = 1;
-            this.Btn_CreateMagicSquare.Text = "魔法陣を作成";
+            this.Btn_CreateMagicSquare.Text = "魔方陣を作成";
             this.Btn_CreateMagicSquare.UseVisualStyleBackColor = true;
             this.Btn_CreateMagicSquare.Click += new System.EventHandler(this.Btn_CreateMagicSquare_Click);
             // 
@@ -65,12 +65,15 @@ namespace MagicSquareTool.Forms
             // 
             // Txt_GridSize
             // 
+            this.Txt_GridSize.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Txt_GridSize.Location = new System.Drawing.Point(74, 41);
             this.Txt_GridSize.Name = "Txt_GridSize";
+            this.Txt_GridSize.ShortcutsEnabled = false;
             this.Txt_GridSize.Size = new System.Drawing.Size(36, 19);
             this.Txt_GridSize.TabIndex = 3;
             this.Txt_GridSize.Text = "3";
-            this.Txt_GridSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Txt_GridSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt_GridSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_GridSize_KeyPress);
             // 
             // FormMain
             // 
@@ -81,6 +84,7 @@ namespace MagicSquareTool.Forms
             this.Controls.Add(this.Lbl_GridSize);
             this.Controls.Add(this.Btn_CreateMagicSquare);
             this.Controls.Add(this.Pic_Board);
+            this.MinimumSize = new System.Drawing.Size(488, 377);
             this.Name = "FormMain";
             this.Text = "MagicSquareTool";
             this.Load += new System.EventHandler(this.FormMain_Load);
