@@ -2,8 +2,11 @@
 
 namespace MagicSquareTool.Square
 {
-    class MagicSquare
+    internal class MagicSquare
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MagicSquare(int _gridSize)
         {
             this.Squares = new int[_gridSize, _gridSize];
@@ -31,11 +34,9 @@ namespace MagicSquareTool.Square
         {
             if (this.Squares[0, 0] != 0) Resetting();
 
-            if (this.GridSize % 2 != 0) {
-                Setup_odd();
-            } else {
-                Setup_even();
-            }
+            // 奇数か偶数で、処理内容が変わる
+            if (this.GridSize % 2 != 0) Setup_odd();
+            else Setup_even();
         }
 
         /// <summary>
@@ -85,8 +86,14 @@ namespace MagicSquareTool.Square
 
         }
 
+        /// <summary>
+        /// 魔方陣を格納する二次元配列
+        /// </summary>
         public int[,] Squares { get; }
 
+        /// <summary>
+        /// 魔方陣のマス目の一辺の長さ
+        /// </summary>
         public int GridSize => Squares.GetLength(0);
     }
 }
