@@ -59,5 +59,23 @@ namespace MagicSquareTool.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   エラー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   0以上の数を入力してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RetypeNumberMessage {
+            get {
+                return ResourceManager.GetString("RetypeNumberMessage", resourceCulture);
+            }
+        }
     }
 }
