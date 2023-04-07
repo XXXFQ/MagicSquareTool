@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using MagicSquareTool.Square;
+using MagicSquareTool.Properties;
 
 namespace MagicSquareTool.Forms
 {
@@ -17,7 +18,8 @@ namespace MagicSquareTool.Forms
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            int gridSize = 3; // マス目の一辺の長さ
+            // マス目の一辺の長さ
+            int gridSize = 3;
 
             magicSquare = new MagicSquare(gridSize);
             DrawGrid(gridSize);
@@ -29,6 +31,12 @@ namespace MagicSquareTool.Forms
         private void Btn_CreateMagicSquare_Click(object sender, EventArgs e)
         {
             int gridSize = Convert.ToInt32(Txt_GridSize.Text);
+
+            if (gridSize <= 0)
+            {
+                MessageBox.Show(Resources.RetypeNumberMessage, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             magicSquare = new MagicSquare(gridSize);
             magicSquare.Setup();
@@ -88,10 +96,7 @@ namespace MagicSquareTool.Forms
         private void Txt_GridSize_KeyPress(object sender, KeyPressEventArgs e)
         {
             //バックスペースが押された時は有効（Deleteキーも有効）
-            if (e.KeyChar == '\b')
-            {
-                return;
-            }
+            if (e.KeyChar == '\b') return;
 
             //数値0～9以外が押された時はイベントをキャンセルする
             if (e.KeyChar < '0' || '9' < e.KeyChar)
